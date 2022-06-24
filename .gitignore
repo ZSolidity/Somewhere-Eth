@@ -42,3 +42,5 @@ forge/out/Contract.sol/Contract.json
 forge/out/Contract.t.sol/ContractTest.json
 .gitignore
 forge/out/test.sol/DSTest.json
+forge/out/Contract.t.sol/TestContract.json
+forge/lib/ds-test/
