@@ -5,7 +5,6 @@ import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
-import { EthersAppContext } from "eth-hooks/context";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -41,13 +40,11 @@ const wagmiClient = createClient({
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <EthersAppContext>
-      <WagmiConfig client={wagmiClient}>
-        <RainbowKitProvider chains={chains}>
-          <Component {...pageProps} />
-        </RainbowKitProvider>
-      </WagmiConfig>
-    </EthersAppContext>
+    <WagmiConfig client={wagmiClient}>
+      <RainbowKitProvider chains={chains}>
+        <Component {...pageProps} />
+      </RainbowKitProvider>
+    </WagmiConfig>
   );
 }
 

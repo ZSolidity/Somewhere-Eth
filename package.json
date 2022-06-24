@@ -1,6 +1,9 @@
 {
-  "name": "somewhere",
+  "name": "somewhere-2",
   "private": true,
+  "workspaces": [
+    "forge"
+  ],
   "version": "0.1.0",
   "scripts": {
     "dev": "next dev",

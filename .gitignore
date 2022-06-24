@@ -4,6 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
+forge/node_modules
 
 # testing
 /coverage
@@ -36,3 +37,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+forge/cache/solidity-files-cache.json
+forge/out/Contract.sol/Contract.json
+forge/out/Contract.t.sol/ContractTest.json
+.gitignore
+forge/out/test.sol/DSTest.json
