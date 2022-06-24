@@ -1,11 +1,56 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
-import type { NextPage } from 'next';
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import type { NextPage } from "next";
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import {
+  useAccount,
+  useConnect,
+  useContractRead,
+  useEnsName,
+  useProvider,
+} from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
+import { useContract } from "wagmi";
+import { YourContract, YourContract__factory } from "../types/ethers-contracts";
+import { YourContractInterface } from "../types/ethers-contracts/YourContract";
+import { ethers } from "ethers";
 
-const Home: NextPage = () => {
+const Home: NextPage["getInitialProps"] = () => {
+  const provider = useProvider();
+  const contract = useContract({
+    addressOrName: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+    contractInterface: YourContract__factory.createInterface(),
+    signerOrProvider: provider,
+  });
+  console.log("contract", contract);
+
+  const { data: account } = useAccount();
+  if (account) {
+    const { data: ensName } = useEnsName({ address: account.address });
+    console.log("ens", ensName);
+  }
+  /* const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  }); */
+
+  const { data, isError, isLoading } = useContractRead(
+    {
+      addressOrName: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      contractInterface: YourContract__factory.createInterface(),
+    },
+    "purpose"
+  );
+
+  console.log("purpose", contract.purpose());
+  console.log("read", data);
+
   return (
     <div className={styles.container}>
+      {isError == false && !isLoading == false ? (
+        <title>{data}</title>
+      ) : (
+        <title></title>
+      )}
       <Head>
         <title>RainbowKit App</title>
         <meta
@@ -19,12 +64,12 @@ const Home: NextPage = () => {
         <ConnectButton />
 
         <h1 className={styles.title}>
-          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{' '}
+          Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{" "}
           <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
