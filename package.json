@@ -10,7 +10,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-contracts": "yarn typechain --target=ethers-v5 './forge/out/Contract.sol/YourContract.json'"
+    "build-contracts": "yarn workspace forge forge-install && yarn workspace forge compile-contracts && yarn typechain --target=ethers-v5 './forge/out/Contract.sol/YourContract.json'"
   },
   "dependencies": {
     "@ethersproject/providers": "^5.6.8",
