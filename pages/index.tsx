@@ -2,36 +2,29 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import {
-  useAccount,
-  useConnect,
-  useContractRead,
-  useEnsName,
-  useProvider,
-} from "wagmi";
-import { InjectedConnector } from "wagmi/connectors/injected";
+import { useContractRead, useProvider } from "wagmi";
 import { useContract } from "wagmi";
-import { YourContract, YourContract__factory } from "../types/ethers-contracts";
-import { YourContractInterface } from "../types/ethers-contracts/YourContract";
+import { YourContract__factory } from "../types/ethers-contracts";
 import { ethers } from "ethers";
+import React, { useState, useEffect } from "react";
 
-const Home: NextPage["getInitialProps"] = () => {
+interface Props {
+  data: ethers.utils.Result | undefined;
+  isError: boolean;
+  isLoading: boolean;
+  /* provider: ethers.providers.BaseProvider | undefined; */
+}
+
+const Home: NextPage<Props> = () => {
   const provider = useProvider();
+  const [cData, setCData] = useState<ethers.utils.Result>();
+
   const contract = useContract({
     addressOrName: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
     contractInterface: YourContract__factory.createInterface(),
     signerOrProvider: provider,
   });
-  console.log("contract", contract);
-
-  const { data: account } = useAccount();
-  if (account) {
-    const { data: ensName } = useEnsName({ address: account.address });
-    console.log("ens", ensName);
-  }
-  /* const { connect } = useConnect({
-    connector: new InjectedConnector(),
-  }); */
+  /* console.log("contract", contract); */
 
   const { data, isError, isLoading } = useContractRead(
     {
@@ -41,16 +34,15 @@ const Home: NextPage["getInitialProps"] = () => {
     "purpose"
   );
 
-  console.log("purpose", contract.purpose());
-  console.log("read", data);
+  useEffect(() => {
+    if (isError && isLoading == false) {
+      setCData(data);
+      /* console.log("set", data); */
+    }
+  }, [data, isError, isLoading]);
 
   return (
     <div className={styles.container}>
-      {isError == false && !isLoading == false ? (
-        <title>{data}</title>
-      ) : (
-        <title></title>
-      )}
       <Head>
         <title>RainbowKit App</title>
         <meta
@@ -65,8 +57,15 @@ const Home: NextPage["getInitialProps"] = () => {
 
         <h1 className={styles.title}>
           Welcome to <a href="">RainbowKit</a> + <a href="">wagmi</a> +{" "}
-          <a href="https://nextjs.org">Next.js!</a>
+          <a href="https://nextjs.org">Next.js</a> +{" "}
+          <a href="https://book.getfoundry.sh/forge/">forge!</a>
         </h1>
+
+        {cData ? (
+          <h1>Purpose: {cData}</h1>
+        ) : (
+          <h1>Purpose: Loading Purpose...</h1>
+        )}
 
         <p className={styles.description}>
           Get started by editing{" "}
