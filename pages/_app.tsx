@@ -11,6 +11,7 @@ import {
 } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
+import { contractsContextFactory } from "eth-hooks/context";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [

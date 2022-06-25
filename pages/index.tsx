@@ -7,6 +7,7 @@ import { useContract } from "wagmi";
 import { YourContract__factory } from "../types/ethers-contracts";
 import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
+import ContractJson from "../forge/src/broadcast/Contract.s.sol/31337/run-latest.json";
 
 interface Props {
   data: ethers.utils.Result | undefined;
@@ -16,7 +17,7 @@ interface Props {
 }
 
 const Home: NextPage<Props> = () => {
-  const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+  const contractAddress = ContractJson.transactions[0].contractAddress;
 
   const provider = useProvider();
   const [cData, setCData] = useState<ethers.utils.Result>();
@@ -26,7 +27,7 @@ const Home: NextPage<Props> = () => {
     contractInterface: YourContract__factory.createInterface(),
     signerOrProvider: provider,
   });
-  /* console.log("contract", contract); */
+  console.log("contract", contract);
 
   const { data, isError, isLoading } = useContractRead(
     {

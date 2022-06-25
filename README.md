@@ -26,21 +26,7 @@ Navigate to your original terminal and Deploy Contracts to local network:
 yarn deploy
 ```
 
-Copy your deployment address (until I find a different solution):
-
-```bash
-Compiling...
-No files changed, compilation skipped
-Deployer: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
-Deployed to: 0x5fbdb2315678afecb367f032d93f642f64180aa3 <--- copy dis
-Transaction hash: 0x8a5922fff6519efbe97ea81351fb03affdf3bfb00b826f25e5ff6ef9a0df0815
-```
-
-Update your contract address in pages/index.tsx
-
-```bash
-const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3"; <-- This is the address from your clipboard
-```
+Thats it- Your contract now has an interface on your front-end!
 
 Lastly:
 
