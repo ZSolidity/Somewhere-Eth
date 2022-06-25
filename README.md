@@ -1,12 +1,5 @@
 This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) + [forge](https://github.com/foundry-rs/foundry/tree/master/forge) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
 
-## WARNING (SERIOUSLY, READ 🏴‍☠️)
-
-DO NOT INSERT YOUR PRIVATE KEY HERE!!! THIS IS SETUP FOR LOCAL DEV USING ANVILS GENERATED ACCOUNTS!!
-package.json within /forge contains scripts that reference a "--private-key" as "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80"
-
-Please exercise caution and don't use this for production (right now 6/25/22)
-
 ## Dependencies (Before we get started)
 
 ```bash
@@ -40,6 +33,32 @@ Navigate to your original terminal and Deploy Contracts to local network:
 ```bash
 yarn deploy
 ```
+
+You will receive a prompt to enter a private key (for deploy):
+
+```bash
+Script ran successfully.
+
+==========================
+
+Estimated total gas used for script: 407208
+
+Estimated amount required: 0.001415339854464096 ETH
+
+==========================
+
+###
+Finding wallets for all the necessary addresses...
+Insert private key:
+```
+
+Paste this private key (generate by anvil) or use your own
+
+```bash
+0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
+```
+
+This key is associated with "--sender 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266" in our default configuration, if you use a different key, change the sender in forge/package.json
 
 Thats it- Your contract now has an interface on your front-end!
 
