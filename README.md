@@ -40,13 +40,8 @@ export PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f
 yarn deploy
 ```
 
-<<<<<<< HEAD
-Thats it- Your contract now has an interface on your front-end!
-=======
-This key is associated with "--sender 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266" in our default configuration, if you use a different key, change the sender in forge/package.json
 
-Thats it- Your contract now has an interface to your front-end! (not a full interface, but a typed one, we just need to make some components. Make a pr if you're into this sort of thing!)
->>>>>>> 247bcefe9c3ac49692d4f8f084f7561e5637b57a
+# Thats it- Your contract is deployed!
 
 Lastly:
 
