@@ -1,11 +1,45 @@
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
+This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) + [forge](https://github.com/foundry-rs/foundry/tree/master/forge) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
 
 ## Getting Started
 
-First, run the development server:
+First, install:
 
 ```bash
-npm run dev
+yarn
+```
+
+Second, install forge and generate typechain with a simple command:
+
+```bash
+yarn build-contracts
+```
+
+Create a new terminal tab/window and run your local node:
+
+```bash
+anvil
+```
+
+Navigate to your original terminal and Deploy Contracts to local network:
+
+```bash
+yarn deploy
+```
+
+Copy your deployment address (until I find a different solution):
+
+```bash
+Compiling...
+No files changed, compilation skipped
+Deployer: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+Deployed to: 0x5fbdb2315678afecb367f032d93f642f64180aa3 <--- copy dis
+Transaction hash: 0x8a5922fff6519efbe97ea81351fb03affdf3bfb00b826f25e5ff6ef9a0df0815
+```
+
+Lastly, update your contract address in pages/index.tsx
+
+```bash
+const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

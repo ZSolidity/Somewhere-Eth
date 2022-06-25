@@ -16,11 +16,12 @@ interface Props {
 }
 
 const Home: NextPage<Props> = () => {
+  const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
   const provider = useProvider();
   const [cData, setCData] = useState<ethers.utils.Result>();
 
   const contract = useContract({
-    addressOrName: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+    addressOrName: contractAddress,
     contractInterface: YourContract__factory.createInterface(),
     signerOrProvider: provider,
   });
@@ -28,7 +29,7 @@ const Home: NextPage<Props> = () => {
 
   const { data, isError, isLoading } = useContractRead(
     {
-      addressOrName: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
+      addressOrName: contractAddress,
       contractInterface: YourContract__factory.createInterface(),
     },
     "purpose"
