@@ -60,7 +60,7 @@ Paste this private key (generate by anvil) or use your own
 
 This key is associated with "--sender 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266" in our default configuration, if you use a different key, change the sender in forge/package.json
 
-Thats it- Your contract now has an interface on your front-end!
+Thats it- Your contract now has an interface to your front-end! (not a full interface, but a typed one, we just need to make some components. Make a pr if you're into this sort of thing!)
 
 Lastly:
 
