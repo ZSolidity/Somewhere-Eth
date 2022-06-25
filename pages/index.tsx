@@ -2,8 +2,7 @@ import { ConnectButton } from "@rainbow-me/rainbowkit";
 import type { NextPage } from "next";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import { useContractRead, useProvider } from "wagmi";
-import { useContract } from "wagmi";
+import { useContractRead, useProvider, useContract } from "wagmi";
 import { YourContract__factory } from "../types/ethers-contracts";
 import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
@@ -62,7 +61,6 @@ const Home: NextPage = () => {
         ) : (
           <h1>Purpose: Loading Purpose...</h1>
         )}
-
         <p className={styles.description}>
           Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
