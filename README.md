@@ -1,5 +1,13 @@
 This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) + [forge](https://github.com/foundry-rs/foundry/tree/master/forge) project bootstrapped with [`create-rainbowkit`](https://github.com/rainbow-me/rainbowkit/tree/main/packages/create-rainbowkit).
 
+## Dependencies (Before we get started)
+
+```bash
+Node: v16.15.1
+Yarn: 1.23.0-20220130.1630
+Forge: 0.2.0 (28fa0b8 2022-06-25T00:03:57.096634Z)
+```
+
 ## Getting Started
 
 First, install:
