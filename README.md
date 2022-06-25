@@ -44,6 +44,16 @@ export PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f
 yarn deploy
 ```
 
+Need Test ETH?
+
+```bash
+export MY_ADDRESS=0xb010ca9Be09C382A9f31b79493bb232bCC319f01
+```
+
+```bash
+yarn fund
+```
+
 # Thats it- Your contract is deployed!
 
 Lastly:
