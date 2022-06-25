@@ -9,14 +9,7 @@ import { ethers } from "ethers";
 import React, { useState, useEffect } from "react";
 import ContractJson from "../forge/src/broadcast/Contract.s.sol/31337/run-latest.json";
 
-interface Props {
-  data: ethers.utils.Result | undefined;
-  isError: boolean;
-  isLoading: boolean;
-  /* provider: ethers.providers.BaseProvider | undefined; */
-}
-
-const Home: NextPage<Props> = () => {
+const Home: NextPage = () => {
   const contractAddress = ContractJson.transactions[0].contractAddress;
 
   const provider = useProvider();
