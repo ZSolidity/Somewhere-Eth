@@ -17,6 +17,7 @@ interface Props {
 
 const Home: NextPage<Props> = () => {
   const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+
   const provider = useProvider();
   const [cData, setCData] = useState<ethers.utils.Result>();
 

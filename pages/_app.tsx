@@ -45,16 +45,6 @@ const wagmiClient = createClient({
   webSocketProvider,
 });
 
-/* const greeterContract = YourContract__factory.connect(
-  "0x5fbdb2315678afecb367f032d93f642f64180aa3",
-  web3Provider ? web3Provider.getSigner() : provider,
-); */
-
-/* const contract = useContract({
-  addressOrName: "0x5fbdb2315678afecb367f032d93f642f64180aa3",
-  contractInterface: YourContract__factory.createInterface(),
-}); */
-
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
