@@ -36,10 +36,16 @@ Deployed to: 0x5fbdb2315678afecb367f032d93f642f64180aa3 <--- copy dis
 Transaction hash: 0x8a5922fff6519efbe97ea81351fb03affdf3bfb00b826f25e5ff6ef9a0df0815
 ```
 
-Lastly, update your contract address in pages/index.tsx
+Update your contract address in pages/index.tsx
 
 ```bash
-const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3";
+const contractAddress = "0x5fbdb2315678afecb367f032d93f642f64180aa3"; <-- This is the address from your clipboard
+```
+
+Lastly:
+
+```bash
+yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
