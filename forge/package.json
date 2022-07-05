@@ -6,7 +6,7 @@
   },
   "scripts": {
     "deploy-local": "forge create --rpc-url http://127.0.0.1:8545 --private-key $PRIVATE_KEY --extra-output abi src/Contract.sol:YourContract",
-    "deploy-script": "cd src && forge script script/Contract.s.sol:MyScript --broadcast",
+    "deploy-script": "cd src && source .env && forge script script/Contract.s.sol:MyScript --broadcast --private-key $PRIVATE_KEY --fork-url $RPC_URL",
     "forge-install": "forge install",
     "compile-contracts": "forge build"
   }

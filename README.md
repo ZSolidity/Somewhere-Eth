@@ -28,30 +28,21 @@ Create a new terminal tab/window and run your local node:
 anvil
 ```
 
-Navigate to your original terminal and Deploy Contracts to local network:
+Now to deploy:
 
 Set your RPC, for our case, we will deploy to localhost..
 
-```bash
-export RPC_URL=http://127.0.0.1:8545
+Create .env in forge/src for our script
+
+```
+cd forge/src && cp .example-env .env
 ```
 
-```bash
-export PRIVATE_KEY=0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80
-```
+Set your RPC and deployment private key in the copied
+"file forge/src/.env"
 
 ```bash
 yarn deploy
-```
-
-Need Test ETH?
-
-```bash
-export MY_ADDRESS=0xb010ca9Be09C382A9f31b79493bb232bCC319f01
-```
-
-```bash
-yarn fund
 ```
 
 # Thats it- Your contract is deployed!
